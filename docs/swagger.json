@@ -1,0 +1,281 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is KubeWorkz-Audit api documentation.",
+        "title": "Swagger KubeWorkz-Audit API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/kube/audit": {
+            "get": {
+                "description": "query audit log from es",
+                "tags": [
+                    "audit"
+                ],
+                "summary": "query audit log",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "endTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "eventName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "resourceName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "responseStatus",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "sourceIpAddress",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "startTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "userName",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/audit.EsResult"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/errcode.ErrorInfo"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/kube/audit/export": {
+            "get": {
+                "description": "query and export audit log from es",
+                "tags": [
+                    "audit"
+                ],
+                "summary": "export audit log",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "endTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "eventName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "resourceName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "responseStatus",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "sourceIpAddress",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "startTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "userName",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/errcode.ErrorInfo"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/kube/healthz": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "health check",
+                "responses": {
+                    "200": {
+                        "description": "{\"msg\": \"hello\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "audit.EsResult": {
+            "type": "object",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v1.Event"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "errcode.ErrorInfo": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "v1.Event": {
+            "type": "object",
+            "properties": {
+                "apiAction": {
+                    "type": "string"
+                },
+                "apiVersion": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "errorCode": {
+                    "type": "string"
+                },
+                "errorMessage": {
+                    "type": "string"
+                },
+                "eventName": {
+                    "type": "string"
+                },
+                "eventTime": {
+                    "type": "integer"
+                },
+                "eventType": {
+                    "type": "string"
+                },
+                "eventVersion": {
+                    "type": "string"
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestMethod": {
+                    "type": "string"
+                },
+                "requestParameters": {
+                    "type": "string"
+                },
+                "resourceList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v1.ResourceData"
+                    }
+                },
+                "responseElements": {
+                    "type": "string"
+                },
+                "responseStatus": {
+                    "type": "integer"
+                },
+                "sourceIpAddress": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "userAgent": {
+                    "type": "string"
+                },
+                "userIdentity": {
+                    "$ref": "#/definitions/v1.UserIdentity"
+                }
+            }
+        },
+        "v1.ResourceData": {
+            "type": "object",
+            "properties": {
+                "resourceId": {
+                    "type": "string"
+                },
+                "resourceName": {
+                    "type": "string"
+                },
+                "resourceType": {
+                    "type": "string"
+                }
+            }
+        },
+        "v1.UserIdentity": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
