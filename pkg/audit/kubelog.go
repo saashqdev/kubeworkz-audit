@@ -1,5 +1,5 @@
 /*
-Copyright 2024 KubeWorkz Authors
+Copyright 2024 Kubeworkz Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import (
 	"github.com/saashqdev/kubeworkz/pkg/clog"
 )
 
-// receive audit log from KubeWorkz
+// receive audit log from Kubeworkz
 func HandleCubeAuditLog(c *gin.Context) {
 
 	clog.Info("receive kube audit event")

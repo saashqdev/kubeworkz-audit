@@ -1,5 +1,5 @@
 /*
-Copyright 2024 KubeWorkz Authors
+Copyright 2024 Kubeworkz Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -34,9 +34,9 @@ import (
 
 const apiPathAuditRoot = "/api/v1/kube/audit"
 
-// @title Swagger KubeWorkz-Audit API
+// @title Swagger Kubeworkz-Audit API
 // @version 1.0
-// @description This is KubeWorkz-Audit api documentation.
+// @description This is Kubeworkz-Audit api documentation.
 func main() {
 
 	clients.InitCubeClientSetWithOpts(nil)

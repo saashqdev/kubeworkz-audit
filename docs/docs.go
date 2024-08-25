@@ -311,8 +311,8 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "",
 	BasePath:    "",
 	Schemes:     []string{},
-	Title:       "Swagger KubeWorkz-Audit API",
-	Description: "This is KubeWorkz-Audit api documentation.",
+	Title:       "Swagger Kubeworkz-Audit API",
+	Description: "This is Kubeworkz-Audit api documentation.",
 }
 
 type s struct{}

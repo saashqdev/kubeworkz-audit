@@ -20,5 +20,5 @@
 
 # v1.0.0
 ## Features:
-- Receive audit information from KubeWorkz and K8s and send it to ES
+- Receive audit information from Kubeworkz and K8s and send it to ES
 - Query and download audit information

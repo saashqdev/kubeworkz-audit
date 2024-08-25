@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is KubeWorkz-Audit api documentation.",
-        "title": "Swagger KubeWorkz-Audit API",
+        "description": "This is Kubeworkz-Audit api documentation.",
+        "title": "Swagger Kubeworkz-Audit API",
         "contact": {},
         "version": "1.0"
     },
